@@ -1,1 +1,144 @@
-<xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="oled_cleardisplay" id="157" x="-28" y="-46">
+    <next>
+      <block type="controls_whileUntil" id="31" inline="false">
+        <field name="MODE">UNTIL</field>
+        <value name="NUMBER">
+          <block type="logic_operation" id="51" inline="true">
+            <field name="OP">LOR</field>
+            <value name="A">
+              <block type="logic_compare" id="222" inline="true">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="sensor_object" id="52">
+                    <field name="OBJECT">RIGHTFRONT</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="229">
+                    <field name="NUM">65</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="B">
+              <block type="logic_compare" id="236" inline="true">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="sensor_object" id="38">
+                    <field name="OBJECT">LEFTFRONT</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="237">
+                    <field name="NUM">65</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="movement_forward" id="63">
+            <next>
+              <block type="robot_delay" id="65" inline="true">
+                <value name="DELAY">
+                  <block type="math_number" id="83">
+                    <field name="NUM">500</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="movement_stop" id="126">
+            <next>
+              <block type="movement_left" id="136">
+                <next>
+                  <block type="robot_delay" id="138" inline="true">
+                    <value name="DELAY">
+                      <block type="math_number" id="139">
+                        <field name="NUM">2600</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="controls_whileUntil" id="194" inline="false">
+                        <field name="MODE">UNTIL</field>
+                        <value name="NUMBER">
+                          <block type="sensor_button" id="207">
+                            <field name="OBJECT">ENTER</field>
+                          </block>
+                        </value>
+                        <statement name="DO">
+                          <block type="oled_setcursor" id="176" inline="true">
+                            <value name="STARTX">
+                              <block type="math_number" id="177">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <value name="STARTY">
+                              <block type="math_number" id="178">
+                                <field name="NUM">10</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="oled_drawtext" id="187">
+                                <field name="TEXT">Hello, you have a</field>
+                                <next>
+                                  <block type="oled_setcursor" id="208" inline="true">
+                                    <value name="STARTX">
+                                      <block type="math_number" id="209">
+                                        <field name="NUM">10</field>
+                                      </block>
+                                    </value>
+                                    <value name="STARTY">
+                                      <block type="math_number" id="210">
+                                        <field name="NUM">20</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="oled_drawtext" id="211">
+                                        <field name="TEXT">message!</field>
+                                        <next>
+                                          <block type="oled_setcursor" id="213" inline="true">
+                                            <value name="STARTX">
+                                              <block type="math_number" id="214">
+                                                <field name="NUM">10</field>
+                                              </block>
+                                            </value>
+                                            <value name="STARTY">
+                                              <block type="math_number" id="215">
+                                                <field name="NUM">10</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="oled_drawtext" id="212">
+                                                <field name="TEXT">Press Enter</field>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="oled_cleardisplay" id="246"></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
